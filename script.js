@@ -5,7 +5,7 @@ function handleSearch(event) {
 		fetch(query)
 			.then((respose) => respose.json())
 			.then((data) => {
-				createboxes(data.Search);
+				createboxes(data.Search, "search");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -13,13 +13,14 @@ function handleSearch(event) {
 	}
 }
 
-function createboxes(data) {
+function createboxes(data, value) {
 	var container = document.getElementById("container");
 
 	container.innerHTML = "";
 	data.forEach((element) => {
 		var box = document.createElement("div");
 		box.className = "box";
+		box.id = element.imdbID;
 
 		var imageContainer = document.createElement("div");
 		imageContainer.className = "image-container";
@@ -50,7 +51,17 @@ function createboxes(data) {
 
 		var watchlist = document.createElement("div");
 		watchlist.className = "watchlist";
-		watchlist.innerHTML = "Watchlist";
+		if (value === true) {
+			watchlist.innerHTML = "Remove";
+			watchlist.onclick = () => {
+				removeFromWatchlist(element.imdbID);
+			};
+		} else {
+			watchlist.innerHTML = "Watchlist";
+			watchlist.onclick = () => {
+				addToWatchlist(element.imdbID);
+			};
+		}
 
 		details.appendChild(title);
 		details.appendChild(year);
@@ -63,4 +74,50 @@ function createboxes(data) {
 
 		container.appendChild(box);
 	});
+}
+
+function addToWatchlist(id) {
+	var list = JSON.parse(localStorage.getItem("watchlist")) || [];
+	if (list.includes(id)) {
+		alert("Movie already in watchlist");
+	} else {
+		list.push(id);
+		alert("Movie added to watchlist");
+	}
+	localStorage.setItem("watchlist", JSON.stringify(list));
+}
+
+function removeFromWatchlist(id) {
+    var list = JSON.parse(localStorage.getItem("watchlist")) || [];
+    if (!list.includes(id)) {
+        alert("Movie not in watchlist");
+    } else {
+        var index = list.indexOf(id);
+        list.splice(index, 1);
+        alert("Movie removed from watchlist");
+    }
+    localStorage.setItem("watchlist", JSON.stringify(list));
+    showwatchlist();
+}
+
+function showwatchlist() {
+	var list = JSON.parse(localStorage.getItem("watchlist")) || [];
+    if (list.length == 0) {
+        var container = document.getElementById("container");
+        container.innerHTML = "You have No Movies in your Watchlist";
+        alert("No movies in watchlist");
+	} else {
+		var listOfWatched = [];
+		list.forEach((element) => {
+			var box = document.createElement("div");
+			box.className = "box";
+			box.id = element;
+			fetch(`https://www.omdbapi.com/?apikey=9027a6a0&i=${element}`)
+				.then((respose) => respose.json())
+				.then((data) => {
+					listOfWatched.push(data);
+					createboxes(listOfWatched, true);
+				});
+		});
+	}
 }
