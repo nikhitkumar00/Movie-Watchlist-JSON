@@ -5,7 +5,13 @@
 	font-family: sans-serif;
 }
 
+:root {
+    --background-color: rgb(255, 255, 255);
+    --text-color:rgb(0, 0, 0);
+}
+
 body {
+    background-color: var(--background-color);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -15,16 +21,21 @@ body {
 	width: 100vw;
 }
 
+.body.dark {
+    --background-color: rgb(0, 0, 0);
+    --text-color: rgb(255, 255, 255);
+}
+
 .navbar {
 	display: flex;
-	color: rgb(0, 0, 0);
+	color: var(--text-color);
 	justify-content: space-around;
 	align-items: center;
 	gap: 10px;
 }
 
 .navbar-elements {
-	box-shadow: 0 0 1px black;
+	box-shadow: 0 0 1px var(--text-color);
 	border-radius: 10px;
 	flex: 1;
 	display: flex;
@@ -36,7 +47,7 @@ body {
 }
 
 .navbar-elements:hover {
-	box-shadow: 0 0 3px black;
+	box-shadow: 0 0 3px var(--text-color);
 }
 
 .navbar-elements:nth-child(2) {
@@ -44,9 +55,14 @@ body {
 	cursor: text;
 }
 .navbar-elements:last-child {
-	background-color: rgb(0, 0, 0);
-	color: rgb(255, 255, 255);
 	flex: 0.1;
+    height: 40px;
+}
+
+.iconimg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .container {
@@ -61,7 +77,7 @@ body {
 }
 
 .box {
-	box-shadow: 0 0 1px black;
+	box-shadow: 0 0 1px var(--text-color);
 	border-radius: 10px;
 	height: 300px;
 	width: 450px;
@@ -74,7 +90,7 @@ body {
 
 .box:hover {
 	cursor: pointer;
-	box-shadow: 0 0 3px black;
+	box-shadow: 0 0 3px var(--text-color);
 }
 
 .image-container {
@@ -107,12 +123,12 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 10px 5px;
-	box-shadow: 0 0 1px black;
+	box-shadow: 0 0 1px var(--text-color);
 	border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .watchlist:hover{
 	cursor: pointer;
-	box-shadow: 0 0 3px black;
+	box-shadow: 0 0 3px var(--text-color);
 }

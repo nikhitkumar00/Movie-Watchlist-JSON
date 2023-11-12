@@ -1,3 +1,8 @@
+function toggleTheme() {
+	var body = document.body;
+	body.classList.toggle("dark");
+}
+
 function handleSearch(event) {
 	if (event.key === "Enter") {
 		var input = document.getElementById("searchbox").value;
@@ -88,24 +93,24 @@ function addToWatchlist(id) {
 }
 
 function removeFromWatchlist(id) {
-    var list = JSON.parse(localStorage.getItem("watchlist")) || [];
-    if (!list.includes(id)) {
-        alert("Movie not in watchlist");
-    } else {
-        var index = list.indexOf(id);
-        list.splice(index, 1);
-        alert("Movie removed from watchlist");
-    }
-    localStorage.setItem("watchlist", JSON.stringify(list));
-    showwatchlist();
+	var list = JSON.parse(localStorage.getItem("watchlist")) || [];
+	if (!list.includes(id)) {
+		alert("Movie not in watchlist");
+	} else {
+		var index = list.indexOf(id);
+		list.splice(index, 1);
+		alert("Movie removed from watchlist");
+	}
+	localStorage.setItem("watchlist", JSON.stringify(list));
+	showwatchlist();
 }
 
 function showwatchlist() {
 	var list = JSON.parse(localStorage.getItem("watchlist")) || [];
-    if (list.length == 0) {
-        var container = document.getElementById("container");
-        container.innerHTML = "You have No Movies in your Watchlist";
-        alert("No movies in watchlist");
+	if (list.length == 0) {
+		var container = document.getElementById("container");
+		container.innerHTML = "You have No Movies in your Watchlist";
+		alert("No movies in watchlist");
 	} else {
 		var listOfWatched = [];
 		list.forEach((element) => {
