@@ -1,6 +1,7 @@
 function toggleTheme() {
-	var body = document.body;
-	body.classList.toggle("dark");
+    const root = document.documentElement;
+    root.classList.toggle("dark");
+    
 }
 
 function handleSearch(event) {
