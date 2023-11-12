@@ -1,7 +1,7 @@
 function toggleTheme() {
-    const root = document.documentElement;
-    root.classList.toggle("dark");
-    
+	const root = document.documentElement;
+	root.classList.toggle("dark");
+	document.getElementById("iconimg").classList.toggle("filter");
 }
 
 function handleSearch(event) {

@@ -65,6 +65,10 @@ body {
 	object-fit: contain;
 }
 
+.filter {
+    filter: invert(1);
+}
+
 .container {
 	border-radius: 10px;
 	flex: 1;
