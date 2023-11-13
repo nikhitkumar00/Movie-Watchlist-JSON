@@ -49,6 +49,8 @@ function createboxes(data, value) {
 		var image = document.createElement("img");
 		image.className = "image";
 		image.src = element.Poster;
+		image.alt = element.Title;
+		image.loading = "lazy";
 
 		var details = document.createElement("div");
 		details.className = "details";
