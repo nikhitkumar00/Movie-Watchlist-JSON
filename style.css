@@ -120,12 +120,14 @@ body {
 .details {
 	height: 100%;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	justify-content: space-around;
 	font-size: 18px;
 }
 
 .watchlist {
+	width: 100%; 
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -142,4 +144,12 @@ body {
 
 .title {
 	font-size: 25px;
+}
+
+.redd:hover {
+	box-shadow: 0 0 5px red;
+}
+
+.greenn:hover {
+	box-shadow: 0 0 5px green;
 }
