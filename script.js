@@ -37,10 +37,10 @@ function createboxes(data, value) {
 		box.className = "box";
 		box.id = element.imdbID;
 		box.title = "Open in IMDB: " + element.Title;
-		box.onclick = () => {
-			var link = `https://www.imdb.com/title/${box.id}/`;
-			window.open(link, "_blank");
-		};
+		// box.onclick = () => {
+		// 	var link = `https://www.imdb.com/title/${box.id}/`;
+		// 	window.open(link, "_blank");
+		// };
 
 		var imageContainer = document.createElement("div");
 		imageContainer.className = "image-container";
@@ -56,18 +56,13 @@ function createboxes(data, value) {
 		watchlist.className = "watchlist";
 		if (value === true) {
 			watchlist.innerHTML = "Remove";
-			watchlist.classList.add("redd");
-			watchlist.onclick = () => {
-				removeFromWatchlist(element.imdbID);
-			};
 		} else {
 			watchlist.innerHTML = "Watchlist";
-			watchlist.classList.add("greenn");
-			watchlist.onclick = () => {
-				addToWatchlist(element.imdbID);
-			};
 		}
-
+		watchlist.onclick = () => {
+			addToWatchlist(element.imdbID);
+		};
+		box.appendChild(watchlist);
 		imageContainer.appendChild(image);
 		container.appendChild(box);
 	});
