@@ -52,26 +52,6 @@ function createboxes(data, value) {
 		image.alt = element.Title;
 		image.loading = "lazy";
 
-		var details = document.createElement("div");
-		details.className = "details";
-
-		var title = document.createElement("div");
-		title.className = "title";
-		title.innerHTML = "<strong>" + element.Title + "</strong>";
-
-		var year = document.createElement("div");
-		year.className = "year";
-		year.innerHTML = "<i><strong>Year: </strong>" + element.Year + "</i>";
-
-		var imdb = document.createElement("div");
-		imdb.className = "imdb";
-		imdb.innerHTML =
-			"<i><strong>IMDB ID: </strong>" + element.imdbID.slice(2) + "</i>";
-
-		var type = document.createElement("div");
-		type.className = "type";
-		type.innerHTML = "<i><strong>Type: </strong>" + element.Type + "</i>";
-
 		var watchlist = document.createElement("div");
 		watchlist.className = "watchlist";
 		if (value === true) {
@@ -88,15 +68,7 @@ function createboxes(data, value) {
 			};
 		}
 
-		details.appendChild(title);
-		details.appendChild(year);
-		details.appendChild(imdb);
-		details.appendChild(type);
-		details.appendChild(watchlist);
-
 		imageContainer.appendChild(image);
-		box.appendChild(details);
-
 		container.appendChild(box);
 	});
 }
