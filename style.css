@@ -108,6 +108,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 .image {
@@ -137,4 +138,8 @@ body {
 .watchlist:hover {
 	cursor: pointer;
 	box-shadow: 0 0 3px var(--text-color);
+}
+
+.title {
+	font-size: 25px;
 }

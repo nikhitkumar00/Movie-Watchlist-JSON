@@ -41,7 +41,7 @@ function createboxes(data, value) {
 
 		var title = document.createElement("div");
 		title.className = "title";
-		title.innerHTML = "<strong>Title: </strong>" + element.Title;
+		title.innerHTML = "<strong>" + element.Title + "</strong>";
 
 		var year = document.createElement("div");
 		year.className = "year";
@@ -127,3 +127,4 @@ function showwatchlist() {
 		});
 	}
 }
+showwatchlist();
