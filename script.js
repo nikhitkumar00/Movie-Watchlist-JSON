@@ -143,6 +143,7 @@ function showwatchlist() {
 					listOfWatched.push(data);
 					createboxes(listOfWatched, true);
 				});
-		})
+		});
+	}
 }
 showwatchlist();
