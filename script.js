@@ -18,7 +18,7 @@ function handleSearch(event) {
 		var input = document.getElementById("searchbox").value;
 		var query = `https://www.omdbapi.com/?apikey=9027a6a0&s=${input}`;
 		fetch(query)
-			.then((respose) => respose.json())
+			.then((response) => response.json())
 			.then((data) => {
 				createboxes(data.Search, "search");
 			})
