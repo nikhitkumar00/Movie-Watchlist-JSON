@@ -96,7 +96,7 @@ body {
 
 .box:hover {
 	cursor: pointer;
-	box-shadow: 0 0 3px var(--text-color);
+	box-shadow: 0 0 5px var(--text-color);
 }
 
 .image-container {
@@ -127,19 +127,14 @@ body {
 }
 
 .watchlist {
-	width: 100%; 
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 10px 5px;
-	box-shadow: 0 0 1px var(--text-color);
+	box-shadow: 0 0 2px var(--text-color);
 	border-radius: 10px;
 	transition: all 0.2s ease-in-out;
-}
-
-.watchlist:hover {
-	cursor: pointer;
-	box-shadow: 0 0 3px var(--text-color);
 }
 
 .title {
@@ -148,8 +143,10 @@ body {
 
 .redd:hover {
 	box-shadow: 0 0 5px red;
+	cursor: pointer;
 }
 
 .greenn:hover {
 	box-shadow: 0 0 5px green;
+	cursor: pointer;
 }

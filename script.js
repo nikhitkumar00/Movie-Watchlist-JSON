@@ -59,15 +59,16 @@ function createboxes(data, value) {
 
 		var year = document.createElement("div");
 		year.className = "year";
-		year.innerHTML = "<strong>Year: </strong>" + element.Year;
+		year.innerHTML = "<i><strong>Year: </strong>" + element.Year + "</i>";
 
 		var imdb = document.createElement("div");
 		imdb.className = "imdb";
-		imdb.innerHTML = "<strong>IMDB ID: </strong>" + element.imdbID.slice(2);
+		imdb.innerHTML =
+			"<i><strong>IMDB ID: </strong>" + element.imdbID.slice(2) + "</i>";
 
 		var type = document.createElement("div");
 		type.className = "type";
-		type.innerHTML = "<strong>Type: </strong>" + element.Type;
+		type.innerHTML = "<i><strong>Type: </strong>" + element.Type + "</i>";
 
 		var watchlist = document.createElement("div");
 		watchlist.className = "watchlist";
