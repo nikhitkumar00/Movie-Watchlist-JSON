@@ -1,6 +1,15 @@
+const root = document.documentElement;
+if (localStorage.getItem("theme") === "dark") {
+	toggleTheme();
+}
+
 function toggleTheme() {
 	const root = document.documentElement;
 	root.classList.toggle("dark");
+	localStorage.setItem(
+		"theme",
+		root.classList.contains("dark") ? "dark" : "light"
+	);
 	document.getElementById("iconimg").classList.toggle("filter");
 }
 
@@ -27,6 +36,7 @@ function createboxes(data, value) {
 		var box = document.createElement("div");
 		box.className = "box";
 		box.id = element.imdbID;
+		box.title = "Open in IMDB: " + element.Title;
 		box.onclick = () => {
 			var link = `https://www.imdb.com/title/${box.id}/`;
 			window.open(link, "_blank");
