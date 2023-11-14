@@ -15,6 +15,7 @@ function toggleTheme() {
 
 function handleSearch(event) {
 	if (event.key === "Enter") {
+		const env = process.env.API_KEY;
 		var input = document.getElementById("searchbox").value;
 		var query = `https://www.omdbapi.com/?apikey=9027a6a0&s=${input}`;
 		fetch(query)
