@@ -102,7 +102,6 @@ function showwatchlist() {
 	if (list.length == 0) {
 		var container = document.getElementById("container");
 		container.innerHTML = "You have No Movies in your Watchlist";
-		alert("No movies in watchlist");
 	} else {
 		var listOfWatched = [];
 		list.forEach((element) => {
