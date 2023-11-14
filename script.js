@@ -15,7 +15,6 @@ function toggleTheme() {
 
 function handleSearch(event) {
 	if (event.key === "Enter") {
-		const env = process.env.API_KEY;
 		var input = document.getElementById("searchbox").value;
 		var query = `https://www.omdbapi.com/?apikey=9027a6a0&s=${input}`;
 		fetch(query)
@@ -57,12 +56,15 @@ function createboxes(data, value) {
 		watchlist.className = "watchlist";
 		if (value === true) {
 			watchlist.innerHTML = "Remove";
+			watchlist.onclick = () => {
+				removeFromWatchlist(element.imdbID);
+			};
 		} else {
 			watchlist.innerHTML = "Watchlist";
+			watchlist.onclick = () => {
+				addToWatchlist(element.imdbID);
+			};
 		}
-		watchlist.onclick = () => {
-			addToWatchlist(element.imdbID);
-		};
 		box.appendChild(watchlist);
 		imageContainer.appendChild(image);
 		container.appendChild(box);
