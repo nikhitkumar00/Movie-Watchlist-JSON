@@ -170,9 +170,7 @@ body {
 		padding: 5px;
 	}
 
-	.iconimg {
-		height: 120%;
-		width: 120%;
-		object-fit: contain;
+	.navbar-elements:last-child {
+		flex: 0.4;
 	}
 }
