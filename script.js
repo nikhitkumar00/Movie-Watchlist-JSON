@@ -36,7 +36,7 @@ function createboxes(data, value) {
 		var box = document.createElement("div");
 		box.className = "box";
 		box.id = element.imdbID;
-		box.title = "Open in IMDB: " + element.Title;
+		box.title = element.Title + " - " + element.Year + " - " + element.Type;
 		// box.onclick = () => {
 		// 	var link = `https://www.imdb.com/title/${box.id}/`;
 		// 	window.open(link, "_blank");
@@ -56,11 +56,13 @@ function createboxes(data, value) {
 		watchlist.className = "watchlist";
 		if (value === true) {
 			watchlist.innerHTML = "Remove";
+			watchlist.classList.add("redd")
 			watchlist.onclick = () => {
 				removeFromWatchlist(element.imdbID);
 			};
 		} else {
 			watchlist.innerHTML = "Watchlist";
+			watchlist.classList.add("greenn")
 			watchlist.onclick = () => {
 				addToWatchlist(element.imdbID);
 			};
